@@ -422,18 +422,19 @@ class Tms extends Back_controller {
 		$excel->setActiveSheetIndex(0)->setCellValue('B3', "DPID"); // Set kolom B3 dengan tulisan "NIS"
 		$excel->setActiveSheetIndex(0)->setCellValue('C3', "KK"); // Set kolom C3 dengan tulisan "NAMA"
 		$excel->setActiveSheetIndex(0)->setCellValue('D3', "NIK"); // Set kolom D3 dengan tulisan "JENIS KELAMIN"
-		$excel->setActiveSheetIndex(0)->setCellValue('E3', "TEMPAT LAHIR"); // Set kolom E3 dengan tulisan "ALAMAT"
-		$excel->setActiveSheetIndex(0)->setCellValue('F3', "TANGGAL LAHIR"); // Set kolom E3 dengan tulisan "ALAMAT"
-		$excel->setActiveSheetIndex(0)->setCellValue('G3', "STATUS KAWIN"); // Set kolom E3 dengan tulisan "ALAMAT"
-		$excel->setActiveSheetIndex(0)->setCellValue('H3', "JENIS KELAMIN"); // Set kolom E3 dengan tulisan "ALAMAT"
-		$excel->setActiveSheetIndex(0)->setCellValue('I3', "DUKUH"); // Set kolom E3 dengan tulisan "ALAMAT"
-		$excel->setActiveSheetIndex(0)->setCellValue('J3', "RT"); // Set kolom E3 dengan tulisan "ALAMAT"
-		$excel->setActiveSheetIndex(0)->setCellValue('K3', "RW"); // Set kolom E3 dengan tulisan "ALAMAT"
-		$excel->setActiveSheetIndex(0)->setCellValue('L3', "DISABILITAS"); // Set kolom E3 dengan tulisan "ALAMAT"
-		$excel->setActiveSheetIndex(0)->setCellValue('M3', "KETERANGAN"); // Set kolom E3 dengan tulisan "ALAMAT"
-		$excel->setActiveSheetIndex(0)->setCellValue('N3', "SUMBER DATA"); // Set kolom E3 dengan tulisan "ALAMAT"
-		$excel->setActiveSheetIndex(0)->setCellValue('O3', "TPS"); // Set kolom E3 dengan tulisan "ALAMAT"
-		$excel->setActiveSheetIndex(0)->setCellValue('P3', "TPS"); // Set kolom E3 dengan tulisan "ALAMAT"
+		$excel->setActiveSheetIndex(0)->setCellValue('E3', "NAMA"); // Set kolom E3 dengan tulisan "ALAMAT"
+		$excel->setActiveSheetIndex(0)->setCellValue('F3', "TEMPAT LAHIR"); // Set kolom E3 dengan tulisan "ALAMAT"
+		$excel->setActiveSheetIndex(0)->setCellValue('G3', "TANGGAL LAHIR"); // Set kolom E3 dengan tulisan "ALAMAT"
+		$excel->setActiveSheetIndex(0)->setCellValue('H3', "STATUS KAWIN"); // Set kolom E3 dengan tulisan "ALAMAT"
+		$excel->setActiveSheetIndex(0)->setCellValue('I3', "JENIS KELAMIN"); // Set kolom E3 dengan tulisan "ALAMAT"
+		$excel->setActiveSheetIndex(0)->setCellValue('J3', "JALAN/DUKUH"); // Set kolom E3 dengan tulisan "ALAMAT"
+		$excel->setActiveSheetIndex(0)->setCellValue('K3', "RT"); // Set kolom E3 dengan tulisan "ALAMAT"
+		$excel->setActiveSheetIndex(0)->setCellValue('L3', "RW"); // Set kolom E3 dengan tulisan "ALAMAT"
+		$excel->setActiveSheetIndex(0)->setCellValue('M3', "DISABILITAS"); // Set kolom E3 dengan tulisan "ALAMAT"
+		$excel->setActiveSheetIndex(0)->setCellValue('N3', "STATUS PEREKAMAN"); // Set kolom E3 dengan tulisan "ALAMAT"
+		$excel->setActiveSheetIndex(0)->setCellValue('O3', "KETERANGAN"); // Set kolom E3 dengan tulisan "ALAMAT"
+		$excel->setActiveSheetIndex(0)->setCellValue('P3', "SUMBER DATA"); // Set kolom E3 dengan tulisan "ALAMAT"
+		$excel->setActiveSheetIndex(0)->setCellValue('Q3', "TPS"); // Set kolom E3 dengan tulisan "ALAMAT"
 	
 		// Apply style header yang telah kita buat tadi ke masing-masing kolom header
 		$excel->getActiveSheet()->getStyle('A3')->applyFromArray($style_col);
@@ -452,6 +453,7 @@ class Tms extends Back_controller {
 		$excel->getActiveSheet()->getStyle('N3')->applyFromArray($style_col);
 		$excel->getActiveSheet()->getStyle('O3')->applyFromArray($style_col);
 		$excel->getActiveSheet()->getStyle('P3')->applyFromArray($style_col);
+		$excel->getActiveSheet()->getStyle('Q3')->applyFromArray($style_col);
 	
 		// Buat header tabel nya pada baris ke 4
 		$excel->setActiveSheetIndex(0)->setCellValue('A4', "1"); // Set kolom A3 dengan tulisan "NO"
@@ -469,7 +471,8 @@ class Tms extends Back_controller {
 		$excel->setActiveSheetIndex(0)->setCellValue('M4', "13"); // Set kolom E3 dengan tulisan "ALAMAT"
 		$excel->setActiveSheetIndex(0)->setCellValue('N4', "14"); // Set kolom E3 dengan tulisan "ALAMAT"
 		$excel->setActiveSheetIndex(0)->setCellValue('O4', "15"); // Set kolom E3 dengan tulisan "ALAMAT"
-		$excel->setActiveSheetIndex(0)->setCellValue('P4', "15"); // Set kolom E3 dengan tulisan "ALAMAT"
+		$excel->setActiveSheetIndex(0)->setCellValue('P4', "16"); // Set kolom E3 dengan tulisan "ALAMAT"
+		$excel->setActiveSheetIndex(0)->setCellValue('Q4', "17"); // Set kolom E3 dengan tulisan "ALAMAT"
 	
 		// Apply style header yang telah kita buat tadi ke masing-masing kolom header
 		$excel->getActiveSheet()->getStyle('A4')->applyFromArray($backgroound);
@@ -488,6 +491,7 @@ class Tms extends Back_controller {
 		$excel->getActiveSheet()->getStyle('N4')->applyFromArray($backgroound);
 		$excel->getActiveSheet()->getStyle('O4')->applyFromArray($backgroound);
 		$excel->getActiveSheet()->getStyle('P4')->applyFromArray($backgroound);
+		$excel->getActiveSheet()->getStyle('Q4')->applyFromArray($backgroound);
 	
 		// if(isset($get['pemohon'])) {
 		//   $data = $this->get_data_pemohon($get['pemohon'], $get['tanggal1'], $get['tanggal2']);
@@ -510,18 +514,19 @@ class Tms extends Back_controller {
 		  $excel->setActiveSheetIndex(0)->setCellValue('B'.$numrow, $row->dpid);
 		  $excel->setActiveSheetIndex(0)->setCellValue('C'.$numrow, $row->kk,PHPExcel_Cell_DataType::TYPE_STRING);
 		  $excel->setActiveSheetIndex(0)->setCellValue('D'.$numrow, $row->nik,PHPExcel_Cell_DataType::TYPE_STRING);
-		  $excel->setActiveSheetIndex(0)->setCellValue('E'.$numrow, $row->tempat_lahir);
-		  $excel->setActiveSheetIndex(0)->setCellValue('F'.$numrow, $row->tanggal_lahir);
-		  $excel->setActiveSheetIndex(0)->setCellValue('G'.$numrow, $row->status_kawin);
-		  $excel->setActiveSheetIndex(0)->setCellValue('H'.$numrow, $row->jenis_kelamin);
-		  $excel->setActiveSheetIndex(0)->setCellValue('I'.$numrow, $row->dukuh);
-		  $excel->setActiveSheetIndex(0)->setCellValue('J'.$numrow, $row->rt);
-		  $excel->setActiveSheetIndex(0)->setCellValue('K'.$numrow, $row->rw);
-		  $excel->setActiveSheetIndex(0)->setCellValue('L'.$numrow, $row->disabilitas);
-		  $excel->setActiveSheetIndex(0)->setCellValue('M'.$numrow, $row->status_rekam);
-		  $excel->setActiveSheetIndex(0)->setCellValue('N'.$numrow, $row->keterangan);
-		  $excel->setActiveSheetIndex(0)->setCellValue('O'.$numrow, $row->sumber_data);
-		  $excel->setActiveSheetIndex(0)->setCellValue('P'.$numrow, $tps->nama);
+		  $excel->setActiveSheetIndex(0)->setCellValue('E'.$numrow, $row->nama);
+		  $excel->setActiveSheetIndex(0)->setCellValue('F'.$numrow, $row->tempat_lahir);
+		  $excel->setActiveSheetIndex(0)->setCellValue('G'.$numrow, $row->tanggal_lahir);
+		  $excel->setActiveSheetIndex(0)->setCellValue('H'.$numrow, $row->status_kawin);
+		  $excel->setActiveSheetIndex(0)->setCellValue('I'.$numrow, $row->jenis_kelamin);
+		  $excel->setActiveSheetIndex(0)->setCellValue('J'.$numrow, $row->dukuh);
+		  $excel->setActiveSheetIndex(0)->setCellValue('K'.$numrow, $row->rt);
+		  $excel->setActiveSheetIndex(0)->setCellValue('L'.$numrow, $row->rw);
+		  $excel->setActiveSheetIndex(0)->setCellValue('M'.$numrow, $row->disabilitas);
+		  $excel->setActiveSheetIndex(0)->setCellValue('N'.$numrow, $row->status_rekam);
+		  $excel->setActiveSheetIndex(0)->setCellValue('O'.$numrow, $row->keterangan);
+		  $excel->setActiveSheetIndex(0)->setCellValue('P'.$numrow, $row->sumber_data);
+		  $excel->setActiveSheetIndex(0)->setCellValue('Q'.$numrow, $tps->nama);
 	
 		  // Apply style row yang telah kita buat tadi ke masing-masing baris (isi tabel)
 		  $excel->getActiveSheet()->getStyle('A'.$numrow)->applyFromArray($style_row);
@@ -540,6 +545,7 @@ class Tms extends Back_controller {
 		  $excel->getActiveSheet()->getStyle('N'.$numrow)->applyFromArray($style_row);
 		  $excel->getActiveSheet()->getStyle('O'.$numrow)->applyFromArray($style_row);
 		  $excel->getActiveSheet()->getStyle('P'.$numrow)->applyFromArray($style_row);
+		  $excel->getActiveSheet()->getStyle('Q'.$numrow)->applyFromArray($style_row);
 
 
 		  $excel->getActiveSheet()->setCellValueExplicit('C'.$numrow, $row->kk, PHPExcel_Cell_DataType::TYPE_STRING);
