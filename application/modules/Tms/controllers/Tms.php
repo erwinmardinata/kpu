@@ -582,12 +582,12 @@ class Tms extends Back_controller {
 		$excel->getActiveSheet()->getPageSetup()->setOrientation(PHPExcel_Worksheet_PageSetup::ORIENTATION_LANDSCAPE);
 	
 		// Set judul file excel nya
-		$excel->getActiveSheet(0)->setTitle("Laporan Prasarana");
+		$excel->getActiveSheet(0)->setTitle("Laporan Peserta Pemilu TPS");
 		$excel->setActiveSheetIndex(0);
 	
 		// Proses file excel
 		header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-		header('Content-Disposition: attachment; filename="Laporan Pembelian Jagung.xlsx"'); // Set nama file excel nya
+		header('Content-Disposition: attachment; filename="Laporan Peserta Pemilu TPS.xlsx"'); // Set nama file excel nya
 		header('Cache-Control: max-age=0');
 	
 		$write = PHPExcel_IOFactory::createWriter($excel, 'Excel2007');
