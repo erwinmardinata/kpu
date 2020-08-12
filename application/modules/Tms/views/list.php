@@ -38,7 +38,9 @@
           </select>
         </div>
         <button type="submit" class="btn btn-primary">Cari</button>
-        <button type="submit" class="btn btn-success"><i class="fa fa-file-excel-o" aria-hidden="true"></i> Export</button>
+        <a href="<?php echo site_url($url.'/excel'); ?>" class="btn btn-success" style="float: right;margin-right: 12px;"><i class="fa fa-file-excel-o" aria-hidden="true"></i> Export Excel</a><br><br>
+
+        <!-- <button type="submit" class="btn btn-success"><i class="fa fa-file-excel-o" aria-hidden="true"></i> Export</button> -->
       </form>
 		</div>
 		<div class="col-md-12">

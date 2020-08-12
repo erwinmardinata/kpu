@@ -7,6 +7,12 @@ class Mtms extends CI_Model {
 		return $this->db->get('ab_kwk')->result();
 	}
 
+
+	function get_data_modif() {
+		$this->db->order_by('id', 'ASC')->where("keterangan != ", "");
+		return $this->db->get('ab_kwk')->result();
+	}
+
 	function get_keterangan() {
 		$this->db->order_by('id', 'ASC');
 		return $this->db->get('keterangan')->result();
@@ -42,32 +48,34 @@ class Mtms extends CI_Model {
 				 		->from("ab_kwk");
 			 if($kat == 0) {
 				 $this->db->where("keterangan !=", 0)
-				 					->or_where("keterangan !=", NULL);
+				 					->or_where("keterangan !=", "");
 			 }
-			 if($kat == 1) {
+			 else if($kat == 1) {
 				 $this->db->where("keterangan >=", 1)
 				 					->where("keterangan <=", 10);
 			 }
-			 if($kat == 2) {
+			 else if($kat == 2) {
 				 $this->db->where("keterangan", "U");
 			 }
-			 if($kat == 3) {
+			 else if($kat == 3) {
 				 $this->db->where("keterangan", "BB")
 				 					->or_where("keterangan", "B");
 			 }
-			 if(isset($_POST["search"]["value"]))
-			 {
-						$this->db->like("nama", $_POST["search"]["value"]);
-						// $this->db->or_like("jabatan", $_POST["search"]["value"]);
-			 }
-			 if(isset($_POST["order"]))
-			 {
-						$this->db->order_by($_POST['order']['0']['column'], $_POST['order']['0']['dir']);
-			 }
-			 else
-			 {
-						$this->db->order_by('tps', 'ASC');
-			 }
+
+			//  if(isset($_POST["search"]["value"]))
+			//  {
+			// 			$this->db->like("nama", $_POST["search"]["value"]);
+			// 			// $this->db->or_like("jabatan", $_POST["search"]["value"]);
+			//  }
+
+			//  if(isset($_POST["order"]))
+			//  {
+			// 			$this->db->order_by($_POST['order']['0']['column'], $_POST['order']['0']['dir']);
+			//  }
+			//  else
+			//  {
+			// 			$this->db->order_by('tps', 'ASC');
+			//  }
 	}
 
 	function make_datatables($kat){
